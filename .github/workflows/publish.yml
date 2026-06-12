@@ -1,0 +1,25 @@
+# Publishes @instructionalai/ecosystem-kit to npm on tag push (v*).
+# Uses npm trusted publishing (OIDC) — no stored npm token.
+# Configure the trusted publisher on npmjs.com: package settings →
+# Trusted Publisher → GitHub Actions → ruchir-code/ecosystem-kit, publish.yml.
+name: Publish
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+      - run: npm ci
+      - run: npm publish

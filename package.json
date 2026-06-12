@@ -1,0 +1,39 @@
+{
+  "name": "@instructionalai/ecosystem-kit",
+  "version": "1.0.0",
+  "description": "Shared components and site registry for the instructionalai.org ecosystem",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "recipes"
+  ],
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ruchir-code/ecosystem-kit.git"
+  },
+  "homepage": "https://www.instructionalai.org",
+  "author": "Ruchir Bakshi",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "esbuild src/index.js --bundle --format=esm --jsx=automatic --external:react --external:react/jsx-runtime --outfile=dist/index.js --sourcemap --target=es2022",
+    "test": "node test/smoke.mjs",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  }
+}
