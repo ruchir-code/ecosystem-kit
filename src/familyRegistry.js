@@ -80,7 +80,7 @@ export const FAMILY_SITES = [
     description:
       'A curated gallery of multimedia principles, storyboard walkthroughs, and working templates for instructional designers — covering Mayer\'s 12, cognitive load, visual hierarchy, and scene-by-scene case studies.',
     url: 'https://www.designthestory.org',
-    status: 'coming-soon',
+    status: 'archived',
   },
 ]
 

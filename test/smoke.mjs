@@ -19,6 +19,7 @@ assert.equal(FAMILY_SITES.length, 8)
 assert.ok(FAMILY_SITES.every((s) => s.id && s.name && s.url.startsWith('https://') && s.status))
 assert.equal(liveSites().length, 7, 'storyboard-media must not be in liveSites')
 assert.ok(!liveSites().some((s) => s.id === 'storyboard-media'))
+assert.equal(FAMILY_SITES.find((s) => s.id === 'storyboard-media').status, 'archived')
 // Apex-canonical sites must NOT carry www
 assert.equal(FAMILY_SITES.find((s) => s.id === 'design-the-prompt').url, 'https://designtheprompt.com')
 assert.equal(FAMILY_SITES.find((s) => s.id === 'learning-science').url, 'https://learningsciencelabs.org')
